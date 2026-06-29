@@ -866,6 +866,201 @@
       color: var(--color-text-muted);
     }
 
+    /* ── ORGANISM: Criteria ───────────────────────────────────── */
+    .criteria__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .criteria__card {
+      padding: var(--space-8);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: var(--radius-2xl);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .criteria__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(59,130,246,0.03) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .criteria__card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-2px);
+    }
+
+    .criteria__icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(37,99,235,0.10);
+      border: 1px solid rgba(37,99,235,0.18);
+      border-radius: var(--radius-xl);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-5);
+    }
+
+    .criteria__title {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
+    }
+
+    .criteria__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* ── ORGANISM: Guide ───────────────────────────────────────── */
+    .guide {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .guide__blocks {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .guide__block {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      transition: border-color var(--transition-base);
+    }
+
+    .guide__block:hover { border-color: var(--color-border-hover); }
+
+    .guide__block-eyebrow {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-300);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+
+    .guide__block-title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-4);
+    }
+
+    .guide__block-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Tipo de uso — recommendation pills */
+    .guide__recs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .guide__rec {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      background: rgba(37,99,235,0.07);
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-xs);
+    }
+
+    .guide__rec-label {
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-300);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .guide__rec-name { color: var(--color-text-secondary); }
+
+    /* Motor — watt comparison */
+    .guide__watt-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+
+    .guide__watt-card {
+      padding: var(--space-4);
+      background: rgba(37,99,235,0.04);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: border-color var(--transition-base);
+    }
+
+    .guide__watt-card--highlight {
+      border-color: rgba(37,99,235,0.35);
+      background: rgba(37,99,235,0.09);
+    }
+
+    .guide__watt-value {
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.02em;
+    }
+
+    .guide__watt-value--accent { color: var(--color-accent-300); }
+
+    .guide__watt-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+      line-height: var(--leading-snug);
+    }
+
+    /* Bateria — formula block */
+    .guide__formula {
+      margin-top: var(--space-5);
+      padding: var(--space-5) var(--space-6);
+      background: rgba(37,99,235,0.07);
+      border: 1px solid rgba(37,99,235,0.18);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .guide__formula-eq {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .guide__formula-legend {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    @media (max-width: 560px) {
+      .guide__watt-row { grid-template-columns: 1fr; }
+    }
+
     /* ── ORGANISM: FAQ Accordion ──────────────────────────────── */
     .faq__list {
       display: flex;
@@ -1533,6 +1728,115 @@
         </table>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       COMO ESCOLHEMOS
+  ══════════════════════════════════════════════════ -->
+  <section class="section criteria" id="metodologia" aria-labelledby="criteria-titulo">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="eyebrow">Nossa metodologia</span>
+        <h2 class="section-title" id="criteria-titulo">Como escolhemos</h2>
+        <p class="section-subtitle">Critérios reais, sem papo de marketing</p>
+      </header>
+      <div class="criteria__grid">
+
+        <div class="criteria__card reveal">
+          <div class="criteria__icon">⚡</div>
+          <h3 class="criteria__title">Motor e potência</h3>
+          <p class="criteria__desc">Avaliamos os watts reais entregues pelo motor, não as especificações de marketing. Um motor de 800W deve entregar tração consistente em aclives e com carga — não apenas em condições ideais de laboratório.</p>
+        </div>
+
+        <div class="criteria__card reveal">
+          <div class="criteria__icon">🔋</div>
+          <h3 class="criteria__title">Bateria e autonomia</h3>
+          <p class="criteria__desc">Analisamos tempo de carga e quilômetros reais em terreno plano com ciclista de peso médio. Baterias de 48V com 15Ah entregam autonomia previsível — fugimos de promessas de "até 100 km" sem contexto.</p>
+        </div>
+
+        <div class="criteria__card reveal">
+          <div class="criteria__icon">💰</div>
+          <h3 class="criteria__title">Custo-benefício</h3>
+          <p class="criteria__desc">Comparamos preço versus entrega real de performance. Uma bike de R$&nbsp;6.000 com motor 800W que funciona pode superar uma de R$&nbsp;10.000 com motor subdimensionado. O valor entregue importa mais que o preço absoluto.</p>
+        </div>
+
+        <div class="criteria__card reveal">
+          <div class="criteria__icon">⭐</div>
+          <h3 class="criteria__title">Avaliações verificadas</h3>
+          <p class="criteria__desc">Selecionamos apenas modelos com 4 ou mais estrelas e mínimo de 100 avaliações verificadas na Amazon Brasil. Volume alto + nota alta = experiência genuína de compradores reais, não reviews incentivadas.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       GUIA DE COMPRA
+  ══════════════════════════════════════════════════ -->
+  <section class="section guide" id="guia" aria-labelledby="guide-titulo">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="eyebrow">Antes de comprar</span>
+        <h2 class="section-title" id="guide-titulo">Como escolher sua bicicleta elétrica</h2>
+        <p class="section-subtitle">Três variáveis que fazem toda a diferença</p>
+      </header>
+      <div class="guide__blocks">
+
+        <!-- 01 — Tipo de uso -->
+        <div class="guide__block reveal">
+          <p class="guide__block-eyebrow">01 — Tipo de uso</p>
+          <h3 class="guide__block-title">Urbano, Off-road ou Misto?</h3>
+          <p class="guide__block-body">A escolha mais importante é onde você vai pedalar. Terrenos irregulares exigem suspensão e pneus largos. Uso urbano pede agilidade, alarme e segurança. Uso misto equilibra os dois mundos — mas exige abrir mão de algo.</p>
+          <div class="guide__recs">
+            <div class="guide__rec">
+              <span class="guide__rec-label">Off-road</span>
+              <span class="guide__rec-name">→ Mountain Fat Tire 20"</span>
+            </div>
+            <div class="guide__rec">
+              <span class="guide__rec-label">Urbano</span>
+              <span class="guide__rec-name">→ E-Maxx Duos 800W</span>
+            </div>
+            <div class="guide__rec">
+              <span class="guide__rec-label">Misto</span>
+              <span class="guide__rec-name">→ Confort 800W 48V</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 — Motor -->
+        <div class="guide__block reveal">
+          <p class="guide__block-eyebrow">02 — Motor</p>
+          <h3 class="guide__block-title">350W, 500W e 800W na prática</h3>
+          <p class="guide__block-body">Watt é a potência instantânea do motor. Mais watts = mais torque em aclives e maior velocidade de pico. Na prática cotidiana, a diferença entre 500W e 800W é mais sentida em subidas do que em terreno plano.</p>
+          <div class="guide__watt-row">
+            <div class="guide__watt-card">
+              <p class="guide__watt-value">350W</p>
+              <p class="guide__watt-desc">Terreno plano, uso leve, não exige CNH em SP/RJ</p>
+            </div>
+            <div class="guide__watt-card">
+              <p class="guide__watt-value">500W</p>
+              <p class="guide__watt-desc">Subidas moderadas, carga extra, uso urbano intenso</p>
+            </div>
+            <div class="guide__watt-card guide__watt-card--highlight">
+              <p class="guide__watt-value guide__watt-value--accent">800W</p>
+              <p class="guide__watt-desc">Subidas íngremes, off-road, máxima performance — os 3 modelos desta seleção</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 — Bateria -->
+        <div class="guide__block reveal">
+          <p class="guide__block-eyebrow">03 — Bateria</p>
+          <h3 class="guide__block-title">Como calcular a autonomia real</h3>
+          <p class="guide__block-body">Ignore "até X&nbsp;km" sem contexto. Use a fórmula abaixo para estimar quilômetros reais em terreno plano com ciclista de 75&nbsp;kg e uso misto de motor + pedalada. Em subidas constantes, divida o resultado por 2.</p>
+          <div class="guide__formula">
+            <p class="guide__formula-eq">Voltagem (V) &times; Amperes (Ah) &divide; 15 = km aproximados</p>
+            <p class="guide__formula-legend">Exemplo: 48V &times; 15Ah &divide; 15 = <strong>48&nbsp;km</strong> de autonomia estimada em uso misto</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
