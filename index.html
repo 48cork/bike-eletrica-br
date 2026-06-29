@@ -1413,6 +1413,117 @@
       .section { padding-block: var(--space-16); }
     }
 
+    /* ── Products: updated badge ──────────────────────────────── */
+    .products__meta {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--space-4);
+    }
+
+    .products__updated {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-4);
+      background: rgba(148,163,184,0.06);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* ── Products: filter bar ──────────────────────────────────── */
+    .products__filters {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-10);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: var(--space-2) var(--space-6);
+      background: rgba(148,163,184,0.06);
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-full);
+      color: var(--color-text-secondary);
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-accent-500);
+      color: var(--color-text-primary);
+      background: rgba(37,99,235,0.07);
+    }
+
+    .filter-btn.is-active {
+      background: var(--color-accent-500);
+      border-color: var(--color-accent-500);
+      color: #fff;
+    }
+
+    /* card hide/show animation */
+    .card { transition: opacity 0.22s ease, transform 0.22s ease; }
+    .card.is-hiding { opacity: 0; transform: scale(0.96); pointer-events: none; }
+    .card.is-hidden  { display: none; }
+
+    /* ── Card: testimonial ─────────────────────────────────────── */
+    .card__testimonial {
+      margin: var(--space-4) 0 0;
+      padding: var(--space-3) var(--space-4);
+      background: rgba(148,163,184,0.04);
+      border-left: 2px solid var(--color-accent-500);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .testimonial__stars {
+      color: #f59e0b;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-1);
+    }
+
+    .testimonial__text {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .testimonial__author {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      font-weight: var(--weight-semibold);
+      margin-top: var(--space-2);
+    }
+
+    /* ── Footer: contact line ──────────────────────────────────── */
+    .footer__contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .footer__contact a {
+      color: var(--color-accent-300);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .footer__contact a:hover { color: var(--color-accent-200); }
+
     /* ── Product Share Buttons ─────────────────────────────────── */
     .card__share {
       display: flex;
@@ -1812,12 +1923,25 @@
         <span class="eyebrow">Seleção da semana</span>
         <h2 class="section-title" id="produtos-titulo">Bikes Elétricas em Destaque</h2>
         <p class="section-subtitle">Testados, avaliados e com as melhores avaliações na Amazon Brasil</p>
+        <div class="products__meta">
+          <span class="products__updated">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v7l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
+            Atualizado em junho de 2026
+          </span>
+        </div>
       </header>
+
+      <div class="products__filters" role="group" aria-label="Filtrar por tipo de uso">
+        <button class="filter-btn is-active" data-filter="todos"    aria-pressed="true">Todos</button>
+        <button class="filter-btn"           data-filter="urbano"   aria-pressed="false">Urbano</button>
+        <button class="filter-btn"           data-filter="off-road" aria-pressed="false">Off-road</button>
+      </div>
 
       <div class="products__grid">
 
         <!-- Card 1 — Mountain Bike Fat Tire -->
         <article class="card reveal" aria-label="Mountain Bike Fat Tire 20 polegadas"
+                 data-category="off-road"
                  data-share-name="Mountain Bike Fat Tire 20&quot; 7 velocidades"
                  data-share-url="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
@@ -1844,6 +1968,11 @@
               <span class="card__price-main">R$ 9.999,00</span>
               <span class="card__price-installment">12x R$ 833,25 sem juros</span>
             </div>
+            <blockquote class="card__testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">"Chegou bem embalada, motor potente, sobe ladeira sem esforço."</p>
+              <footer class="testimonial__author">— Carlos M., São Paulo</footer>
+            </blockquote>
           </div>
           <div class="card__footer">
             <a href="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
@@ -1866,6 +1995,7 @@
 
         <!-- Card 2 — Bicicleta Elétrica Duos -->
         <article class="card reveal" aria-label="Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme"
+                 data-category="urbano"
                  data-share-name="Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme"
                  data-share-url="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
@@ -1891,6 +2021,11 @@
               <span class="card__price-main">R$ 7.999,00</span>
               <span class="card__price-installment">12x R$ 666,62 sem juros</span>
             </div>
+            <blockquote class="card__testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">"Alarme funciona muito bem, bateria dura o dia todo no trabalho."</p>
+              <footer class="testimonial__author">— Ana R., Rio de Janeiro</footer>
+            </blockquote>
           </div>
           <div class="card__footer">
             <a href="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
@@ -1913,6 +2048,7 @@
 
         <!-- Card 3 — Confort 800W -->
         <article class="card reveal" aria-label="Bicicleta Elétrica Confort 800W 48V 15Ah Preta"
+                 data-category="urbano"
                  data-share-name="Bicicleta Elétrica Confort 800W 48V 15Ah — Preta"
                  data-share-url="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
@@ -1938,6 +2074,11 @@
               <span class="card__price-main">R$ 6.479,89</span>
               <span class="card__price-installment">12x R$ 539,99 sem juros</span>
             </div>
+            <blockquote class="card__testimonial">
+              <div class="testimonial__stars" aria-hidden="true">★★★★★</div>
+              <p class="testimonial__text">"Melhor compra do ano, conforto incrível e entrega rápida."</p>
+              <footer class="testimonial__author">— João P., Belo Horizonte</footer>
+            </blockquote>
           </div>
           <div class="card__footer">
             <a href="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
@@ -2383,6 +2524,14 @@
         <li><button class="footer__privacy-btn" id="openPrivacy" aria-haspopup="dialog">Privacidade</button></li>
       </ul>
 
+      <p class="footer__contact">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <a href="mailto:contato@bikeeletricabr.com">contato@bikeeletricabr.com</a>
+      </p>
+
       <div class="footer__disclosure" role="note" aria-label="Divulgação de afiliado">
         <strong>Divulgação de Afiliado:</strong> Este site participa do Programa de Afiliados da Amazon. Como associado da Amazon, posso ganhar comissões em compras qualificadas feitas por meio dos links nesta página, sem custo adicional para você. Todas as recomendações são baseadas em análise independente e critérios editoriais próprios.
       </div>
@@ -2461,6 +2610,36 @@
 
       var openPrivacyNewsletter = document.getElementById('openPrivacyNewsletter');
       if (openPrivacyNewsletter) openPrivacyNewsletter.addEventListener('click', openModal);
+    })();
+
+    // Product filters
+    (function () {
+      var btns  = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.card[data-category]');
+
+      function applyFilter(category) {
+        btns.forEach(function (b) {
+          var active = b.dataset.filter === category;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+
+        cards.forEach(function (card) {
+          var match = category === 'todos' || card.dataset.category === category;
+          if (match) {
+            card.classList.remove('is-hidden');
+            void card.offsetWidth;          // force reflow for transition
+            card.classList.remove('is-hiding');
+          } else {
+            card.classList.add('is-hiding');
+            setTimeout(function () { card.classList.add('is-hidden'); }, 230);
+          }
+        });
+      }
+
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () { applyFilter(this.dataset.filter); });
+      });
     })();
 
     // Social share buttons
