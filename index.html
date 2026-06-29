@@ -26,6 +26,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Google Analytics 4 — substituir G-XXXXXXXXXX pelo ID real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
@@ -1196,6 +1205,8 @@
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
+               data-ga-product="Mountain Fat Tire"
+               data-ga-value="9999.00"
                aria-label="Ver Mountain Bike Fat Tire 20 polegadas na Amazon">
               Ver na Amazon
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -1239,6 +1250,8 @@
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
+               data-ga-product="E-Maxx Duos 800W"
+               data-ga-value="7999.00"
                aria-label="Ver Bicicleta Elétrica Duos com Alarme na Amazon">
               Ver na Amazon
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -1282,6 +1295,8 @@
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
+               data-ga-product="Confort 800W"
+               data-ga-value="6479.89"
                aria-label="Ver Bicicleta Elétrica Confort 800W Preta na Amazon">
               Ver na Amazon
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -1530,6 +1545,18 @@
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     })();
+
+    // GA4 — rastreia cliques nos botões de afiliado
+    document.querySelectorAll('[data-ga-product]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag !== 'function') return;
+        gtag('event', 'click_affiliate', {
+          product_name: this.dataset.gaProduct,
+          value:        parseFloat(this.dataset.gaValue),
+          currency:     'BRL'
+        });
+      });
+    });
   </script>
 
 </body>
