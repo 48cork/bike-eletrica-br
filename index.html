@@ -52,13 +52,13 @@
           "@type": "Product",
           "name": "Mountain Bike Fat Tire 20\" 7 Velocidades até 51km/h",
           "image": "https://m.media-amazon.com/images/I/61LNdzZxveL._AC_SX679_.jpg",
-          "url": "https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20",
+          "url": "https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria",
           "offers": {
             "@type": "Offer",
             "price": "9999.00",
             "priceCurrency": "BRL",
             "availability": "https://schema.org/InStock",
-            "url": "https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20"
+            "url": "https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
           }
         }
       },
@@ -69,13 +69,13 @@
           "@type": "Product",
           "name": "Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme",
           "image": "https://m.media-amazon.com/images/I/61paIMKMLqL._AC_SX679_.jpg",
-          "url": "https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20",
+          "url": "https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria",
           "offers": {
             "@type": "Offer",
             "price": "7999.00",
             "priceCurrency": "BRL",
             "availability": "https://schema.org/InStock",
-            "url": "https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20"
+            "url": "https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
           }
         }
       },
@@ -86,13 +86,13 @@
           "@type": "Product",
           "name": "Bicicleta Elétrica Confort 800W 48V 15Ah Preta",
           "image": "https://m.media-amazon.com/images/I/61JprlVO8JL._AC_SL1080_.jpg",
-          "url": "https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20",
+          "url": "https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria",
           "offers": {
             "@type": "Offer",
             "price": "6479.89",
             "priceCurrency": "BRL",
             "availability": "https://schema.org/InStock",
-            "url": "https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20"
+            "url": "https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
           }
         }
       }
@@ -1042,6 +1042,139 @@
       color: var(--color-text-muted);
     }
 
+    /* ── Floating: Back-to-top ────────────────────────────────── */
+    .btn-top {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      z-index: 200;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-400));
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-glow);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base), filter var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .btn-top.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .btn-top:hover {
+      box-shadow: var(--shadow-glow-lg);
+      filter: brightness(1.12);
+    }
+
+    /* ── Privacy Modal ─────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-2xl);
+      max-width: 640px;
+      width: 100%;
+      max-height: 82vh;
+      overflow-y: auto;
+      padding: var(--space-8);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform var(--transition-base);
+    }
+
+    .modal-overlay.is-open .modal { transform: translateY(0); }
+
+    .modal__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 36px;
+      height: 36px;
+      background: rgba(148,163,184,0.08);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      font-size: 1rem;
+      display: grid;
+      place-items: center;
+      transition: all var(--transition-fast);
+    }
+
+    .modal__close:hover {
+      background: rgba(148,163,184,0.16);
+      color: var(--color-text-primary);
+    }
+
+    .modal__title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--space-6);
+      padding-right: var(--space-10);
+      letter-spacing: -0.01em;
+    }
+
+    .modal__body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .modal__body h3 {
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-top: var(--space-2);
+    }
+
+    .modal__body a { color: var(--color-accent-300); }
+
+    .footer__privacy-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--transition-fast);
+    }
+
+    .footer__privacy-btn:hover { color: var(--color-text-secondary); }
+
     /* ── Scroll Reveal ─────────────────────────────────────────── */
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
@@ -1179,7 +1312,7 @@
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61LNdzZxveL._AC_SX679_.jpg"
-                 alt="Mountain Bike Elétrica Fat Tire 20 polegadas 7 velocidades"
+                 alt="Mountain Bike Elétrica Fat Tire pneu largo 20 polegadas com 7 velocidades, quadro robusto off-road e velocidade máxima de 51 km/h, cor preta"
                  loading="lazy">
             <span class="card__pill">Top Pick</span>
           </div>
@@ -1201,7 +1334,7 @@
             </div>
           </div>
           <div class="card__footer">
-            <a href="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20"
+            <a href="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
@@ -1224,7 +1357,7 @@
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61paIMKMLqL._AC_SX679_.jpg"
-                 alt="Bicicleta Elétrica E-Maxx Duos 800W Azul com alarme integrado"
+                 alt="Bicicleta Elétrica E-Maxx Duos motor 800W cor azul com sistema de alarme integrado, guidão alto, porta-malas traseiro e cesta frontal, uso urbano"
                  loading="lazy">
             <span class="card__pill">Com Alarme</span>
           </div>
@@ -1246,7 +1379,7 @@
             </div>
           </div>
           <div class="card__footer">
-            <a href="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20"
+            <a href="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
@@ -1269,7 +1402,7 @@
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61JprlVO8JL._AC_SL1080_.jpg"
-                 alt="Bicicleta Elétrica Confort 800W 48V 15Ah preta"
+                 alt="Bicicleta Elétrica Confort motor 800W bateria 48V 15Ah cor preta com selim acolchoado, bagageiro traseiro e suspensão dianteira, uso urbano e conforto"
                  loading="lazy">
             <span class="card__pill">800W</span>
           </div>
@@ -1291,7 +1424,7 @@
             </div>
           </div>
           <div class="card__footer">
-            <a href="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20"
+            <a href="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                target="_blank"
                rel="noopener sponsored"
                class="btn btn--card"
@@ -1331,17 +1464,17 @@
             <tr>
               <th scope="col">Característica</th>
               <th scope="col">
-                <a href="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20"
+                <a href="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                    target="_blank" rel="noopener sponsored"
                    aria-label="Mountain Bike Fat Tire na Amazon">Mountain Fat Tire</a>
               </th>
               <th scope="col">
-                <a href="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20"
+                <a href="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                    target="_blank" rel="noopener sponsored"
                    aria-label="E-Maxx Duos 800W na Amazon">E-Maxx Duos 800W</a>
               </th>
               <th scope="col">
-                <a href="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20"
+                <a href="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&utm_source=bikeeletricabr&utm_medium=affiliate&utm_campaign=curadoria"
                    target="_blank" rel="noopener sponsored"
                    aria-label="Confort 800W na Amazon">Confort 800W</a>
               </th>
@@ -1519,6 +1652,7 @@
         <li><a href="#produtos">Produtos</a></li>
         <li><a href="#vantagens">Vantagens</a></li>
         <li><a href="mailto:contato@bikeeletricabr.com">Contato</a></li>
+        <li><button class="footer__privacy-btn" id="openPrivacy" aria-haspopup="dialog">Privacidade</button></li>
       </ul>
 
       <div class="footer__disclosure" role="note" aria-label="Divulgação de afiliado">
@@ -1529,6 +1663,32 @@
 
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <button class="btn-top" id="btnTop" aria-label="Voltar ao topo da página" title="Voltar ao topo">↑</button>
+
+  <!-- Privacy Modal -->
+  <div class="modal-overlay" id="modalPrivacy" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Fechar modal">✕</button>
+      <h2 class="modal__title" id="modal-titulo">Política de Privacidade e Cookies</h2>
+      <div class="modal__body">
+        <p><strong>Última atualização:</strong> junho de 2026</p>
+        <h3>1. Sobre este site</h3>
+        <p>BikeElétricaBR é um site de curadoria editorial independente de bicicletas elétricas. Não vendemos produtos diretamente — somos um portal de análise e recomendação.</p>
+        <h3>2. Links de afiliado Amazon</h3>
+        <p>Este site participa do Programa de Afiliados da Amazon (Amazon Associates Brasil). Os links de produto contêm o identificador de rastreamento <strong>tag=ianapratica21-20</strong>. Quando você compra por meio desses links, podemos receber uma comissão da Amazon sem custo adicional para você. Isso não influencia nossas recomendações editoriais.</p>
+        <h3>3. Cookies e Google Analytics 4</h3>
+        <p>Utilizamos o Google Analytics 4 para medir tráfego e comportamento de navegação de forma agregada e anônima. O GA4 pode definir cookies de sessão no seu navegador. Não compartilhamos dados pessoais com terceiros além do Google. Consulte a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>.</p>
+        <h3>4. Dados pessoais</h3>
+        <p>Este site não coleta dados pessoais diretamente. Não existem formulários de cadastro, login ou checkout. Os únicos dados coletados são os eventos de navegação anonimizados pelo GA4.</p>
+        <h3>5. Seus direitos (LGPD)</h3>
+        <p>De acordo com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018), você pode solicitar informações sobre dados coletados indiretamente. Entre em contato: <a href="mailto:contato@bikeeletricabr.com">contato@bikeeletricabr.com</a>.</p>
+        <h3>6. Alterações</h3>
+        <p>Esta política pode ser atualizada periodicamente. A versão mais recente estará sempre disponível neste site.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Scroll Reveal (IntersectionObserver) -->
   <script>
@@ -1544,6 +1704,32 @@
         { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    })();
+
+    // Back to top
+    (function () {
+      const btn = document.getElementById('btnTop');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+
+    // Privacy modal
+    (function () {
+      const overlay = document.getElementById('modalPrivacy');
+      const open    = document.getElementById('openPrivacy');
+      const close   = document.getElementById('modalClose');
+
+      function openModal()  { overlay.classList.add('is-open');    document.body.style.overflow = 'hidden'; }
+      function closeModal() { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
+
+      open.addEventListener('click', openModal);
+      close.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
     })();
 
     // GA4 — rastreia cliques nos botões de afiliado
