@@ -1632,6 +1632,97 @@
       text-align: center;
       line-height: var(--leading-relaxed);
     }
+
+    /* ── ORGANISM: Newsletter ─────────────────────────────────── */
+    .newsletter {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .newsletter__inner {
+      max-width: 580px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .newsletter__icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.22);
+      border-radius: var(--radius-full);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin: 0 auto var(--space-6);
+    }
+
+    .newsletter__title {
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-3);
+    }
+
+    .newsletter__subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .newsletter__form { margin-top: var(--space-8); }
+
+    .newsletter__row {
+      display: flex;
+      gap: var(--space-3);
+    }
+
+    .newsletter__input {
+      flex: 1;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-lg);
+      color: var(--color-text-primary);
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      min-width: 0;
+    }
+
+    .newsletter__input:focus {
+      border-color: var(--color-accent-500);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+
+    .newsletter__input::placeholder { color: var(--color-text-muted); }
+
+    .newsletter__btn { flex-shrink: 0; }
+
+    .newsletter__legal {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-4);
+      line-height: var(--leading-relaxed);
+    }
+
+    .newsletter__legal button {
+      background: none;
+      border: none;
+      font-family: var(--font-primary);
+      font-size: inherit;
+      color: var(--color-accent-300);
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 520px) {
+      .newsletter__row { flex-direction: column; }
+      .newsletter__btn { width: 100%; justify-content: center; }
+    }
   </style>
 
   <!-- Hotjar — substitua XXXXXXX pelo seu ID em hotjar.com → Sites & Organizations → Settings → Tracking Code -->
@@ -2238,6 +2329,55 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════
+       NEWSLETTER
+  ══════════════════════════════════════════════════ -->
+  <section class="section newsletter" id="newsletter" aria-labelledby="newsletter-titulo">
+    <div class="container">
+      <div class="newsletter__inner reveal">
+
+        <div class="newsletter__icon" aria-hidden="true">📬</div>
+        <h2 class="newsletter__title" id="newsletter-titulo">Receba ofertas de bikes elétricas</h2>
+        <p class="newsletter__subtitle">Enviamos apenas quando aparecer uma oferta real. Sem spam.</p>
+
+        <!--
+          BREVO: crie sua conta em brevo.com → Contatos → Formulários → Novo formulário
+          Copie a URL do action gerada e substitua o valor abaixo.
+          Os campos ocultos locale e html_type são padrão do Brevo.
+        -->
+        <form class="newsletter__form"
+              action="https://sibforms.com/serve/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+              method="POST"
+              target="_blank"
+              novalidate>
+          <input type="hidden" name="locale" value="pt">
+          <input type="hidden" name="html_type" value="simple">
+
+          <div class="newsletter__row">
+            <input type="email"
+                   id="newsletter-email"
+                   name="EMAIL"
+                   class="newsletter__input"
+                   placeholder="seu@email.com"
+                   required
+                   autocomplete="email"
+                   aria-label="Seu endereço de e-mail">
+            <button type="submit" class="btn btn--primary newsletter__btn">
+              Quero receber
+            </button>
+          </div>
+
+          <p class="newsletter__legal">
+            Ao se inscrever, você concorda com nossa
+            <button type="button" id="openPrivacyNewsletter">Política de Privacidade</button>.
+            Cancele a qualquer momento com um clique.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
@@ -2327,6 +2467,9 @@
       close.addEventListener('click', closeModal);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+      var openPrivacyNewsletter = document.getElementById('openPrivacyNewsletter');
+      if (openPrivacyNewsletter) openPrivacyNewsletter.addEventListener('click', openModal);
     })();
 
     // Social share buttons
