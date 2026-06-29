@@ -1412,7 +1412,239 @@
     @media (max-width: 480px) {
       .section { padding-block: var(--space-16); }
     }
+
+    /* ── Product Share Buttons ─────────────────────────────────── */
+    .card__share {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex: 1;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-primary);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      text-decoration: none;
+      border: 1px solid;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-share--wa {
+      background: rgba(37,211,102,0.09);
+      border-color: rgba(37,211,102,0.22);
+      color: #25d366;
+    }
+
+    .btn-share--wa:hover {
+      background: rgba(37,211,102,0.16);
+      border-color: rgba(37,211,102,0.38);
+    }
+
+    .btn-share--x {
+      background: rgba(148,163,184,0.06);
+      border-color: var(--color-border-hover);
+      color: var(--color-text-secondary);
+    }
+
+    .btn-share--x:hover {
+      background: rgba(148,163,184,0.12);
+      color: var(--color-text-primary);
+    }
+
+    /* ── Savings Calculator ────────────────────────────────────── */
+    .calc__card {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    @media (max-width: 640px) {
+      .calc__card { grid-template-columns: 1fr; }
+    }
+
+    .calc__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .calc__label {
+      display: block;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .calc__slider-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .calc__slider {
+      -webkit-appearance: none;
+      flex: 1;
+      height: 4px;
+      background: var(--color-border);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      accent-color: var(--color-accent-500);
+    }
+
+    .calc__slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-accent-500);
+      cursor: pointer;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.22);
+    }
+
+    .calc__km-out {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-300);
+      min-width: 52px;
+      text-align: right;
+    }
+
+    .calc__select {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-lg);
+      color: var(--color-text-primary);
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    .calc__select:focus { border-color: var(--color-accent-500); }
+
+    .calc__price-wrap {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--color-border-hover);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-bg-card);
+    }
+
+    .calc__currency {
+      padding: var(--space-3) var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-muted);
+      border-right: 1px solid var(--color-border);
+      white-space: nowrap;
+      background: rgba(148,163,184,0.04);
+    }
+
+    .calc__price-input {
+      flex: 1;
+      padding: var(--space-3) var(--space-4);
+      background: transparent;
+      border: none;
+      color: var(--color-text-primary);
+      font-family: var(--font-primary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      outline: none;
+      -moz-appearance: textfield;
+    }
+
+    .calc__price-input::-webkit-inner-spin-button,
+    .calc__price-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+    .calc__output {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    .calc__result {
+      padding: var(--space-5) var(--space-6);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-card);
+      border-radius: var(--radius-xl);
+      text-align: center;
+    }
+
+    .calc__result--annual {
+      background: linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(37,99,235,0.04) 100%);
+      border-color: rgba(37,99,235,0.28);
+    }
+
+    .calc__result-label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-2);
+    }
+
+    .calc__result-value {
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-extrabold);
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .calc__result-value--big {
+      font-size: 2.5rem;
+      color: var(--color-accent-300);
+    }
+
+    .calc__disclaimer {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-align: center;
+      line-height: var(--leading-relaxed);
+    }
   </style>
+
+  <!-- Hotjar — substitua XXXXXXX pelo seu ID em hotjar.com → Sites & Organizations → Settings → Tracking Code -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:XXXXXXX,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
 </head>
 <body>
 
@@ -1503,12 +1735,15 @@
       <div class="products__grid">
 
         <!-- Card 1 — Mountain Bike Fat Tire -->
-        <article class="card reveal" aria-label="Mountain Bike Fat Tire 20 polegadas">
+        <article class="card reveal" aria-label="Mountain Bike Fat Tire 20 polegadas"
+                 data-share-name="Mountain Bike Fat Tire 20&quot; 7 velocidades"
+                 data-share-url="https://www.amazon.com.br/dp/B0GVGDLS33?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61LNdzZxveL._AC_SX679_.jpg"
                  alt="Mountain Bike Elétrica Fat Tire pneu largo 20 polegadas com 7 velocidades, quadro robusto off-road e velocidade máxima de 51 km/h, cor preta"
-                 loading="lazy">
+                 loading="eager"
+                 fetchpriority="high">
             <span class="card__pill">Top Pick</span>
           </div>
           <div class="card__body">
@@ -1548,7 +1783,9 @@
         </article>
 
         <!-- Card 2 — Bicicleta Elétrica Duos -->
-        <article class="card reveal" aria-label="Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme">
+        <article class="card reveal" aria-label="Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme"
+                 data-share-name="Bicicleta Elétrica E-Maxx Duos 800W Azul com Alarme"
+                 data-share-url="https://www.amazon.com.br/dp/B0FJSDZ9NR?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61paIMKMLqL._AC_SX679_.jpg"
@@ -1593,7 +1830,9 @@
         </article>
 
         <!-- Card 3 — Confort 800W -->
-        <article class="card reveal" aria-label="Bicicleta Elétrica Confort 800W 48V 15Ah Preta">
+        <article class="card reveal" aria-label="Bicicleta Elétrica Confort 800W 48V 15Ah Preta"
+                 data-share-name="Bicicleta Elétrica Confort 800W 48V 15Ah — Preta"
+                 data-share-url="https://www.amazon.com.br/dp/B0CTD6QK9L?tag=ianapratica21-20&amp;utm_source=bikeeletricabr&amp;utm_medium=affiliate&amp;utm_campaign=curadoria">
           <div class="card__image-wrap">
             <img class="card__image"
                  src="https://m.media-amazon.com/images/I/61JprlVO8JL._AC_SL1080_.jpg"
@@ -1841,6 +2080,60 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════
+       CALCULADORA DE ECONOMIA
+  ══════════════════════════════════════════════════ -->
+  <section class="section calc" id="calculadora" aria-labelledby="calc-titulo">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="eyebrow">Simulação</span>
+        <h2 class="section-title" id="calc-titulo">Quanto você economiza por mês?</h2>
+        <p class="section-subtitle">Compare com o que você gasta hoje em transporte</p>
+      </header>
+      <div class="calc__card reveal">
+        <div class="calc__inputs">
+
+          <div class="calc__field">
+            <label class="calc__label" for="calc-km">Distância diária</label>
+            <div class="calc__slider-row">
+              <input type="range" id="calc-km" class="calc__slider" min="1" max="100" value="20" step="1" aria-valuenow="20" aria-valuemin="1" aria-valuemax="100">
+              <output class="calc__km-out" id="calc-km-out" for="calc-km">20 km</output>
+            </div>
+          </div>
+
+          <div class="calc__field">
+            <label class="calc__label" for="calc-tipo">Transporte atual</label>
+            <select id="calc-tipo" class="calc__select">
+              <option value="carro">Carro (R$/litro)</option>
+              <option value="moto">Moto (R$/litro)</option>
+              <option value="onibus">Ônibus (R$/passagem)</option>
+            </select>
+          </div>
+
+          <div class="calc__field">
+            <label class="calc__label" for="calc-preco"><span id="calc-preco-label">Preço do combustível (R$/litro)</span></label>
+            <div class="calc__price-wrap">
+              <span class="calc__currency">R$</span>
+              <input type="number" id="calc-preco" class="calc__price-input" value="6.29" min="0" step="0.01">
+            </div>
+          </div>
+
+        </div>
+        <div class="calc__output">
+          <div class="calc__result">
+            <p class="calc__result-label">Economia mensal</p>
+            <p class="calc__result-value" id="calc-mensal">—</p>
+          </div>
+          <div class="calc__result calc__result--annual">
+            <p class="calc__result-label">Economia anual</p>
+            <p class="calc__result-value calc__result-value--big" id="calc-anual">—</p>
+          </div>
+          <p class="calc__disclaimer">Recarga bike: ~R$0,50/carga · 1 carga = 48&nbsp;km &nbsp;·&nbsp; Eficiência carro 10&nbsp;km/l · moto 35&nbsp;km/l · ônibus 5&nbsp;km/passagem. Estimativas aproximadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
        FAQ
   ══════════════════════════════════════════════════ -->
   <section class="section faq" id="faq" aria-labelledby="faq-titulo">
@@ -2034,6 +2327,78 @@
       close.addEventListener('click', closeModal);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    })();
+
+    // Social share buttons
+    (function () {
+      var WA_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+      var X_SVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63ZM17.083 20.75h1.833L7.084 4.126H5.117Z"/></svg>';
+
+      document.querySelectorAll('.card[data-share-url]').forEach(function (card) {
+        var footer = card.querySelector('.card__footer');
+        if (!footer) return;
+        var name = card.dataset.shareName;
+        var url  = card.dataset.shareUrl;
+        var msg  = 'Olha essa bike elétrica que achei na Amazon Brasil: ' + name;
+        var wa   = 'https://wa.me/?text=' + encodeURIComponent(msg + ' ' + url);
+        var tw   = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url);
+        var div = document.createElement('div');
+        div.className = 'card__share';
+        div.innerHTML =
+          '<a class="btn-share btn-share--wa" href="' + wa + '" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp">' + WA_SVG + ' WhatsApp</a>' +
+          '<a class="btn-share btn-share--x"  href="' + tw + '" target="_blank" rel="noopener" aria-label="Compartilhar no Twitter/X">'  + X_SVG  + ' Twitter/X</a>';
+        footer.appendChild(div);
+      });
+    })();
+
+    // Savings Calculator
+    (function () {
+      var kmSlider = document.getElementById('calc-km');
+      var kmOut    = document.getElementById('calc-km-out');
+      var tipoSel  = document.getElementById('calc-tipo');
+      var precoLbl = document.getElementById('calc-preco-label');
+      var precoInp = document.getElementById('calc-preco');
+      var mensalEl = document.getElementById('calc-mensal');
+      var anualEl  = document.getElementById('calc-anual');
+      if (!kmSlider) return;
+
+      var defaults = { carro: '6.29', moto: '4.19', onibus: '4.40' };
+      var labels   = {
+        carro:  'Preço do combustível (R$/litro)',
+        moto:   'Preço do combustível (R$/litro)',
+        onibus: 'Preço da passagem (R$/passagem)'
+      };
+      var effic = { carro: 10, moto: 35, onibus: 5 };
+
+      function fmt(v) {
+        return 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+      }
+
+      function calc() {
+        var km       = Number(kmSlider.value);
+        var tipo     = tipoSel.value;
+        var preco    = parseFloat(precoInp.value) || 0;
+        var kmMes    = km * 30;
+        var custoBike   = (kmMes / 48) * 0.5;
+        var custoAtual  = (kmMes / effic[tipo]) * preco;
+        var eco         = Math.max(custoAtual - custoBike, 0);
+        mensalEl.textContent = fmt(eco);
+        anualEl.textContent  = fmt(eco * 12);
+      }
+
+      kmSlider.addEventListener('input', function () {
+        kmOut.value = this.value + ' km';
+        calc();
+      });
+
+      tipoSel.addEventListener('change', function () {
+        precoLbl.textContent = labels[this.value];
+        precoInp.value       = defaults[this.value];
+        calc();
+      });
+
+      precoInp.addEventListener('input', calc);
+      calc();
     })();
 
     // GA4 — rastreia cliques nos botões de afiliado
